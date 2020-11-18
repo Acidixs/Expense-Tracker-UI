@@ -5,6 +5,7 @@ class App:
     def __init__(self, master, num=1, total=0):
         self.master = master
         master.geometry("500x650")
+        master.resizable(width=False, height=True)
         master.title("Expense tracker")
         
         self.all_entries = []
@@ -111,7 +112,7 @@ class App:
                 l.append(itemDict)
                 count += 1
 
-                with open("items.txt", "w") as f:
+                with open("items.txt", "w+") as f:
                     json.dump(l, f, indent=4)
     
     def load_items(self):
